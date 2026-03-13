@@ -13,7 +13,7 @@ If you do not mind this, then you may continue with the usage of this extension.
 This extension is on its first version, and as such, some things may be bugged and/or unsupported.
 
 The way reorganizing avatars works is by CREATING and DELETING avatars.
-This extension will never delete an avatar if it wasn't first created, so if you get an error, your avatars will still be available.
+This extension will *never* delete an avatar until it has first been created, so if you get an error, your avatars will still be available.
 
 Outfits that have missing items stall for an extra amount of time and will be ignored when changing order!
 Please update these outfits before usage.
