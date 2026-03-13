@@ -38,6 +38,7 @@ You may change the order through there via the up and down buttons or you may dr
 Lastly, once you've got the order you'd like, click on "Apply Order".
 As soon as you do, DO NOT tamper with the avatars yourself until the panel displays "Done!".
 Afterwards, refresh the page to ensure your avatars have been updated.
+To close the menu, click on the words "Outfit Order".
 
 / Planned Updates /
 
