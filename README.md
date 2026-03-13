@@ -9,6 +9,7 @@ When reordering the avatars, it will change these colors to the nearest availabl
 If you do not mind this, then you may continue with the usage of this extension.
 
 ! IMPORTANT !
+
 This extension is on its first version, and as such, some things may be bugged and/or unsupported.
 
 The way reorganizing avatars works is by CREATING and DELETING avatars.
@@ -18,6 +19,7 @@ Outfits that have missing items stall for an extra amount of time and will be ig
 Please update these outfits before usage.
 
 / Adding the Extension /
+
 First, unzip the file.
 Then, learn how to run an extension on your browser from a folder. (Search that exact thing on google if these next steps don't help.)
 Go to your browsers extension manager.
@@ -27,6 +29,7 @@ Find this folder and select it.
 The extension should now be functional and appear when you go to [Roblox](https://www.roblox.com/my/avatar).
 
 / Use of the Extension /
+
 Here are the steps to changing the order of your avatars.
 First, go to your created avatars.
 Click on the button "Outfit Order" at the top-right.
@@ -37,10 +40,12 @@ As soon as you do, DO NOT tamper with the avatars yourself until the panel displ
 Afterwards, refresh the page to ensure your avatars have been updated.
 
 / Planned Updates /
+
 The next update will allow the user to choose avatars that you do not want reorganized.
 This is mainly to do something about the issue with avatars that have custom colors.
 These avatars will not be changed, and, therefore, after a full reorganization, will end up at the start of your avatars.
 
 / Other /
+
 If you are familiar with Javascript, I encourage you to look into the programs' code and improve upon it for your own benefit.
 If you'd like to see some of the workings of this extension, when using the extension, hit "F12" to access the inspect menu and view the console for the script "content.js".
