@@ -1,5 +1,7 @@
 /*
 
+Current things to note:
+
 Colors are only matched to the closest avialable skin color provided by Roblox (color ID).
 Outfits that have missing items stall for an extra amount of time and will ignored when changing order! Please update these outfits before usage.
 
@@ -891,8 +893,13 @@ async function outfitsReorder(orderedIds){
 
     let completedText = "Done!"
     let delayIssueTime = 2500
-    let delayRateLimitTime = 100
+    let delayRateLimitTime = 200
+    let delayRateLimitTimeIncrease = 250
+    let delayRateLimitTimeDecrease = 50
+    let delayRateLimitTimeMax = 2500
+    let delayRateLimitTimeMin = 100
     let delayPanelRefreshTime = 500
+    let failCountMax = 10
 
     const currentOutfits = await outfitsGet(userID)
     const currentIds = currentOutfits.map(o => String(o.id))
@@ -912,6 +919,21 @@ async function outfitsReorder(orderedIds){
         
         for (let i = 0; i < outfitIdsFiltered.length; i++){
 
+            function delayTimeAdd(){
+                console.log("Current delay:", delayRateLimitTime)
+                delayRateLimitTime += delayRateLimitTimeIncrease
+                if (delayRateLimitTime > delayRateLimitTimeMax){
+                    delayRateLimitTime = delayRateLimitTimeMax
+                }
+            }
+            function delayTimeSubtract(){
+                console.log("Current delay:", delayRateLimitTime)
+                delayRateLimitTime -= delayRateLimitTimeDecrease
+                if (delayRateLimitTime < delayRateLimitTimeMin){
+                    delayRateLimitTime = delayRateLimitTimeMin
+                }
+            }
+
             const id = outfitIdsFiltered[i]
             
             infoText.textContent = `Updating: (${i+1}/${outfitIdsFiltered.length})`
@@ -920,7 +942,7 @@ async function outfitsReorder(orderedIds){
             let failCount = 0
             let fullBreak = false
             while (!created){
-                if (failCount >= 5) {
+                if (failCount >= failCountMax) {
                     infoText.textContent = "Error: Create failed. Continuing..."
                     console.error("Attempt to create has failed too many times.")
                     await delay(delayIssueTime)
@@ -929,8 +951,13 @@ async function outfitsReorder(orderedIds){
                 failCount += 1
                 created = await outfitCreate(id)
                 await delay(delayRateLimitTime)
+                if (failCount > 1) {
+                    delayTimeAdd()
+                }
             }
             
+            delayTimeSubtract()
+
             let deleted = false
             failCount = 0
             while (!deleted){
@@ -938,7 +965,7 @@ async function outfitsReorder(orderedIds){
                     console.warn("Outfit deletion cancelled. Previous outfit failed creation.")
                     break
                 }
-                if (failCount >= 5) {
+                if (failCount >= failCountMax) {
                     fullBreak = true
                     completedText = `Issue met at ${id}, (${i+1}/${outfitIdsFiltered.length}).`
                     infoText.textContent = "Error: Delete failed. Stopping."
@@ -954,7 +981,12 @@ async function outfitsReorder(orderedIds){
                     break
                 }
                 await delay(delayRateLimitTime)
+                if (failCount > 1) {
+                    delayTimeAdd()
+                }
             }
+
+            delayTimeSubtract()
 
             if (fullBreak){
                 console.log("A full break has occured. This implies something went wrong with the function \"outfitsReorder\".")
