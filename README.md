@@ -48,5 +48,5 @@ These avatars will not be changed, and, therefore, after a full reorganization, 
 
 / Other /
 
-If you are familiar with Javascript, I encourage you to look into the programs' code and improve upon it for your own benefit.
+If you're familiar with Javascript, I encourage you to look into the programs' code and improve upon it for your own benefit.
 If you'd like to see some of the workings of this extension, when using the extension, hit "F12" to access the inspect menu and view the console for the script "content.js".
