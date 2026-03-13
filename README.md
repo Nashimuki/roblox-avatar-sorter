@@ -26,7 +26,7 @@ Go to your browsers extension manager.
 Enable "Developer Mode".
 Find "Load Unpacked" and press it.
 Find this folder and select it.
-The extension should now be functional and appear when you go to [Roblox](https://www.roblox.com/my/avatar).
+The extension should now be functional and appear when you go onto the https://www.roblox.com/my/avatar.
 
 / Use of the Extension /
 
