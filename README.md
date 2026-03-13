@@ -42,7 +42,7 @@ To close the menu, click on the words "Outfit Order".
 
 / Planned Updates /
 
-The next update will allow the user to choose avatars that you do not want reorganized.
+The next update will allow the user to choose avatars that they do not want reorganized.
 This is mainly to do something about the issue with avatars that have custom colors.
 These avatars will not be changed, and, therefore, after a full reorganization, will end up at the start of your avatars.
 
